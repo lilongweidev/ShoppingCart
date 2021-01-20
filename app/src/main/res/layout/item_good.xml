@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+    <!--选中商品-->
+    <ImageView
+        android:id="@+id/iv_checked_goods"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="12dp"
+        android:src="@drawable/ic_check" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <!--商品图片-->
+        <ImageView
+            android:id="@+id/iv_goods"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="12dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_good_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_goods"
+            android:text="商品名"
+            android:textColor="#000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_good_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_good_name"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/iv_goods"
+            android:text="商品颜色"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_good_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_good_name"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/tv_good_color"
+            android:text="商品尺寸"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_goods_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="4dp"
+            android:layout_toRightOf="@+id/iv_goods"
+            android:lines="1"
+            android:text="￥100000.00"
+            android:textColor="#DF550B"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!--改变商品数量-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_reduce_goods_num"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/bg_reduce_goods_num"
+                android:gravity="center"
+                android:text="—"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_goods_num"
+                android:layout_width="40dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="-0.5dp"
+                android:layout_marginRight="-0.5dp"
+                android:layout_toRightOf="@+id/tv_reduce_goods_num"
+                android:background="@drawable/bg_goods_num"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_increase_goods_num"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_toRightOf="@+id/tv_goods_num"
+                android:background="@drawable/bg_increase_goods_num"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="#000"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

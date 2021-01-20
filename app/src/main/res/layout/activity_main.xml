@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--顶部-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="购物车"
+            android:textColor="#000"
+            android:textSize="18sp" />
+        <!--编辑-->
+        <TextView
+            android:id="@+id/tv_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="12dp"
+            android:padding="@dimen/dp_4"
+            android:text="编辑"
+            android:textColor="#000"
+            android:textSize="16sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--下拉刷新区域-->
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/lay_bottom"
+        android:layout_below="@+id/toolbar"
+        app:srlAccentColor="#000"
+        app:srlPrimaryColor="#00000000">
+        <!--刷新头部样式-->
+        <com.scwang.smartrefresh.header.StoreHouseHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:shhText="SHOPPING CART" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--列表-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_store"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="12dp" />
+            <!--购物车为空时显示-->
+            <LinearLayout
+                android:id="@+id/lay_empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_shopping_cart" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="空空如也~" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="下拉可以增加数据喔~" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <!--底部-->
+    <RelativeLayout
+        android:id="@+id/lay_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFF"
+        android:paddingLeft="12dp">
+
+        <ImageView
+            android:id="@+id/iv_checked_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_check" />
+
+        <TextView
+            android:id="@+id/tv_checked_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_checked_all"
+            android:text="全选"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/tv_total"
+            android:text="合计:"
+            android:textColor="#000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@+id/tv_settlement"
+            android:text="￥0"
+            android:textColor="#DF3B0D"
+            android:textSize="14sp" />
+
+        <!--结算-->
+        <TextView
+            android:id="@+id/tv_settlement"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_settlement"
+            android:gravity="center"
+            android:text="结算"
+            android:textColor="#FFF"
+            android:textSize="16sp" />
+
+        <!--点击编辑时出现底部布局-->
+        <LinearLayout
+            android:id="@+id/lay_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="24dp"
+            android:layout_toRightOf="@+id/tv_checked_all"
+            android:background="#FFF"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_share_goods"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="#f4c600"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="分享宝贝"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_collect_goods"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="1dp"
+                android:layout_weight="0.3"
+                android:background="#ea8010"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="移到收藏夹"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_delete_goods"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="1dp"
+                android:layout_weight="0.3"
+                android:background="#eb4f38"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="删除"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
